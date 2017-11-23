@@ -30,7 +30,9 @@ app.get('/api/getQuestion', (req, res) => {
 app.post('/api/postLongWordAnswer', (req, res) => {
   let ans = req.body.ans;
   
-  
+  res.status(200).send({
+    success: true
+  })
 });
 
 app.listen(3000, () => {

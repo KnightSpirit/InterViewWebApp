@@ -19,12 +19,14 @@ class QuestionContainer extends React.Component {
   }
 
   render() {
-    let q = !this.props.Init? '': <Question QuestionIns={this.props.question}  />;
-    let postingTip = this.props.posting? <span>提交中</span>: '';
+    // if (this.props.success) {
+    //   tip = <span>提交成功</span>
+    // } else {
+    //   tip = this.props.posting? <span>提交中</span>: '';
+    // }
     return (
       <div className={styles.question}>
-        {postingTip}
-        {q}
+        <Question QuestionIns={this.props.question}  />
         <div className={styles['commit_button']}>
           <button>完成此次InterView问答</button>
         </div>
@@ -36,7 +38,6 @@ function mapStateToProps(state) {
   return {
     question: state.question.question,
     posting: state.question.posting,
-
   }
 }
 export default connect(mapStateToProps)(QuestionContainer);

@@ -15,7 +15,7 @@ function GetQuestionDict(dict) {
 function PostResult(res) {
   return {
     type: 'get_post_ans_result',
-    success: res.result
+    success: res.success
   }
 }
 
