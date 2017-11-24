@@ -13,12 +13,9 @@ class Dialog extends React.Component {
       case 'okcancel':
       case 'toast':
         let toastClassNames = [styles.toast];
-        if (!this.props.Loading) {
-          toastClassNames.push(styles.disappear);
-        }
         bGroup = (
-          <div class={toastClassNames.join(' ')}>
-            {this.props.content}
+          <div className={toastClassNames.join(' ')}>
+            {this.props.Content}
           </div>);
           break;
       default:
@@ -26,13 +23,17 @@ class Dialog extends React.Component {
         bGroup = (
           <div className={styles['normal_face']}>
             <div>
-              {this.props.content}
+              {this.props.Content}
             </div>
             <div className={styles['button_group']}>
               <button>确认</button>
             </div>
           </div>
         )
+    }
+    
+    if (!this.props.Loading) {
+      classNames.push(styles.disappear);
     }
     return (
       <div className={classNames.join(' ')} >

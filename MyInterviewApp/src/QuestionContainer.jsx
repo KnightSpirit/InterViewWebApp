@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { GetQuestionsAsync, GetQuestions } from './action/action.js';
+import { GetQuestionsAsync, GetQuestions, ToastShow } from './action/action.js';
 import styles from './Question.less';
 import Question from './Question.jsx';
 class QuestionContainer extends React.Component {
   constructor() {
     super();
+    this.CommitInterView = this.CommitInterView.bind(this);
   }
 
   componentDidMount () {
@@ -18,17 +19,16 @@ class QuestionContainer extends React.Component {
 
   }
 
+  CommitInterView() {
+    this.props.dispatch(ToastShow('提交面试'));
+  }
+
   render() {
-    // if (this.props.success) {
-    //   tip = <span>提交成功</span>
-    // } else {
-    //   tip = this.props.posting? <span>提交中</span>: '';
-    // }
     return (
       <div className={styles.question}>
         <Question QuestionIns={this.props.question}  />
         <div className={styles['commit_button']}>
-          <button>完成此次InterView问答</button>
+          <button onClick={this.CommitInterView}>完成此次InterView问答</button>
         </div>
       </div>
     );
@@ -36,8 +36,7 @@ class QuestionContainer extends React.Component {
 }
 function mapStateToProps(state) {
   return {
-    question: state.question.question,
-    posting: state.question.posting,
+    question: state.question.question
   }
 }
 export default connect(mapStateToProps)(QuestionContainer);

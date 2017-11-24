@@ -1,3 +1,17 @@
+export function ToastHide() {
+  return {
+    type: 'hide_toast',
+    hide: true
+  }
+}
+
+export function ToastShow(content) {
+  return {
+    type: 'show_toast',
+    content
+  }
+}
+
 function GetQuestions (questions) {
   return {
     type: 'get_questions',
@@ -38,9 +52,9 @@ export function PostAsAsync(ans) {
       },
       body: JSON.stringify(pAns)
     })).then(res => {
-      return res.json;
+      return res.json();
     }).then(res => {
-      dispatch(PostResult(JSON.parse(res)));
+      dispatch(PostResult(res));
       dispatch(ForPost());
     })
   };

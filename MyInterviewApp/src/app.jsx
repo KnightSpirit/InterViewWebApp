@@ -6,6 +6,7 @@ import QuestionContainer from './QuestionContainer.jsx';
 import { questionDict } from './helper'
 import { GetQuestionDictAsync } from './action/action.js';
 import Dialog from './Dialog.jsx';
+import Toast from './Toast.jsx';
 
 class App extends React.Component {
   componentWillMount() {
@@ -15,7 +16,7 @@ class App extends React.Component {
   render() {
     return (
     <div className={styles.main}>
-      <Dialog Show={this.props.show || this.props.init} Content={this.props.content} DialogType='toast' />
+      <Toast Content={this.props.content} Duration={5} Show={this.props.show} Pos="Center" />
       <QuestionContainer Init={this.props.init} />
     </div>
     )
@@ -25,8 +26,8 @@ class App extends React.Component {
 function mapStateToProps(state = {}) {
   return {
     init: state.questionsType.init || true,
-    content: state.question.content,
-    show: state.question.dialogShow
+    content: state.questionsType.content,
+    show: state.questionsType.show
   }
 }
 
