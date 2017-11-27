@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
     <div className={styles.main}>
       <Toast Content={this.props.content} Duration={5} Show={this.props.show} Pos="Center" />
-      <QuestionContainer Init={this.props.init} />
+      <QuestionContainer />
     </div>
     )
   }
@@ -25,7 +25,6 @@ class App extends React.Component {
 
 function mapStateToProps(state = {}) {
   return {
-    init: state.questionsType.init || true,
     content: state.questionsType.content,
     show: state.questionsType.show
   }

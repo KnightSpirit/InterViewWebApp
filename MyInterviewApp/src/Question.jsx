@@ -2,6 +2,7 @@ import React from 'react';
 import { questionDict } from './helper';
 import { connect } from 'react-redux';
 import styles from './Question.less';
+import Metal from './Metal.jsx';
 import { PostAsAsync, ForPost } from './action/action';
 
 class Question extends React.Component {
@@ -29,15 +30,21 @@ class Question extends React.Component {
   
   render() {
     if (!this.props.QuestionIns) return '';
-    let { Q_Note, Q_Type, Q_Selection } = this.props.QuestionIns;
+    let { Q_Note, Q_Type, Q_Selection, Q_Id } = this.props.QuestionIns;
     let qTypeDescription = questionDict[Q_Type];
-    let answerArea = Q_Type === 'select' ? null : <textarea className={styles['ans_area']} onChange={this.WriteAnswer}></textarea>;
+    let answerArea = Q_Type === 'select' ? null : <textarea row={10} className={styles['ans_area']} onChange={this.WriteAnswer}></textarea>;
     return (
-      <div>
-        <h3><span>{Q_Type}</span>第{this.props.key}题</h3>
+      <div style={{ width: '98%', height:'100%', margin: '0 auto'}}>
+        <h3>
+          <Metal Text={Q_Type} /> 第{Q_Id + 1}题
+        </h3>
         <p>{Q_Note}</p>
-        { answerArea }
-        <button onClick={this.PostMyAnswer}>提交答案</button>
+        <div>
+          { answerArea }
+        </div>
+        <div>
+          <button onClick={this.PostMyAnswer}>提交答案</button>
+        </div>
       </div>
     )
   }

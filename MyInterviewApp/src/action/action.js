@@ -66,6 +66,7 @@ export function GetQuestionsAsync(){
       return res.text();
     }).then(res => {
       dispatch(GetQuestions(JSON.parse(res)));
+      dispatch(ToastHide());
     })
   };
 }

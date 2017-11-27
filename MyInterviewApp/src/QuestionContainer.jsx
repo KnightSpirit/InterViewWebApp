@@ -10,9 +10,10 @@ class QuestionContainer extends React.Component {
   }
 
   componentDidMount () {
+    this.props.dispatch(ToastShow('试题加载中'));
     this.props.dispatch(
       GetQuestionsAsync('q')
-    )
+    );
   }
 
   componentDidUpdate(){
@@ -26,7 +27,9 @@ class QuestionContainer extends React.Component {
   render() {
     return (
       <div className={styles.question}>
-        <Question QuestionIns={this.props.question}  />
+        <div style={{ flexGrow: '3'}}>
+          <Question QuestionIns={this.props.question}  />
+        </div>
         <div className={styles['commit_button']}>
           <button onClick={this.CommitInterView}>完成此次InterView问答</button>
         </div>

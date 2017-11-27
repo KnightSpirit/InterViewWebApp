@@ -46,7 +46,6 @@ class Toast extends React.Component {
       }
     } 
 
-
     return (
       <div className={classNames.join(' ')} style={style}>
         {this.props.Content || '加载中'}

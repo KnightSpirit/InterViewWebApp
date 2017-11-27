@@ -21,7 +21,7 @@ function questionsType(state= {}, action) {
     case 'save_question_dict':
       let qTypes = action.qTypes;
       SaveQuestionTypeToLocal(qTypes);
-      return { ...state, init: true};
+      return state;
     default:
       return state;
   }
