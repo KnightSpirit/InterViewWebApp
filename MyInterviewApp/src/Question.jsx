@@ -3,6 +3,8 @@ import { questionDict } from './helper';
 import { connect } from 'react-redux';
 import styles from './Question.less';
 import Metal from './Metal.jsx';
+import Button from './Button.jsx';
+import AnsBoard from './AnsBoard.jsx';
 import { PostAsAsync, ForPost } from './action/action';
 
 class Question extends React.Component {
@@ -32,7 +34,7 @@ class Question extends React.Component {
     if (!this.props.QuestionIns) return '';
     let { Q_Note, Q_Type, Q_Selection, Q_Id } = this.props.QuestionIns;
     let qTypeDescription = questionDict[Q_Type];
-    let answerArea = Q_Type === 'select' ? null : <textarea row={10} className={styles['ans_area']} onChange={this.WriteAnswer}></textarea>;
+    let answerArea = Q_Type === 'select' ? null : <AnsBoard onChange={this.WriteAnswer} />;
     return (
       <div style={{ width: '98%', height:'100%', margin: '0 auto'}}>
         <h3>
@@ -43,7 +45,8 @@ class Question extends React.Component {
           { answerArea }
         </div>
         <div>
-          <button onClick={this.PostMyAnswer}>提交答案</button>
+          <Button Text="提交答案" onClick={this.PostMyAnswer} />
+          <Button Text="结束此次面试测试" onClick={this.PostMyAnswer} />
         </div>
       </div>
     )

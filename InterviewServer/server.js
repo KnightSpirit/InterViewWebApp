@@ -29,6 +29,7 @@ app.get('/api/getQuestion', (req, res) => {
 
 app.post('/api/postLongWordAnswer', (req, res) => {
   let ans = req.body.ans;
+  let ansPoint = ans.split(';');
   
   res.status(200).send({
     success: true

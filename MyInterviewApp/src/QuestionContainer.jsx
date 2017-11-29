@@ -30,9 +30,6 @@ class QuestionContainer extends React.Component {
         <div style={{ flexGrow: '3'}}>
           <Question QuestionIns={this.props.question}  />
         </div>
-        <div className={styles['commit_button']}>
-          <button onClick={this.CommitInterView}>完成此次InterView问答</button>
-        </div>
       </div>
     );
   }
