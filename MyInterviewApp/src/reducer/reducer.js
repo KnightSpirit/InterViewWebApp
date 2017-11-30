@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 function question(state={}, action) {
   switch(action.type) {
+    case 'pass_ans':
+      return { ...state, ans: action.ans}
     case 'get_questions':
       return { ...state, question: {...action.question}};
     case 'posting_result': 
@@ -15,7 +17,7 @@ function question(state={}, action) {
 function questionsType(state= {}, action) {
   switch(action.type) {
     case 'hide_toast': 
-      return {...state, timeout: action.hide}
+      return {...state, show: false}
     case 'show_toast': 
       return {...state, content: action.content, show: true}
     case 'save_question_dict':

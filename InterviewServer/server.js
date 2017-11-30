@@ -31,9 +31,11 @@ app.post('/api/postLongWordAnswer', (req, res) => {
   let ans = req.body.ans;
   let ansPoint = ans.split(';');
   
-  res.status(200).send({
-    success: true
-  })
+  setTimeout(() => {
+    res.status(200).send({
+      success: true
+    })
+  }, 5000);
 });
 
 app.listen(3000, () => {

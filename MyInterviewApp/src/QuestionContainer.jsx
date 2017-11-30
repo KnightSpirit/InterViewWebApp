@@ -27,9 +27,7 @@ class QuestionContainer extends React.Component {
   render() {
     return (
       <div className={styles.question}>
-        <div style={{ flexGrow: '3'}}>
-          <Question QuestionIns={this.props.question}  />
-        </div>
+        <Question QuestionIns={this.props.question}  />
       </div>
     );
   }

@@ -1,7 +1,12 @@
+export function PassTheAns(ans) {
+  return {
+    type: 'pass_ans',
+    ans
+  }
+}
 export function ToastHide() {
   return {
-    type: 'hide_toast',
-    hide: true
+    type: 'hide_toast'
   }
 }
 
@@ -55,7 +60,7 @@ export function PostAsAsync(ans) {
       return res.json();
     }).then(res => {
       dispatch(PostResult(res));
-      dispatch(ForPost());
+      dispatch(ToastHide());
     })
   };
 }

@@ -16,7 +16,7 @@ class App extends React.Component {
   render() {
     return (
     <div className={styles.main}>
-      <Toast Content={this.props.content} Duration={5} Show={this.props.show} Pos="Center" />
+      <Toast Content={this.props.content} Duration={5} Pos="Center" />
       <QuestionContainer />
     </div>
     )
@@ -26,7 +26,6 @@ class App extends React.Component {
 function mapStateToProps(state = {}) {
   return {
     content: state.questionsType.content,
-    show: state.questionsType.show
   }
 }
 

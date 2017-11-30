@@ -39,7 +39,7 @@ class Toast extends React.Component {
     style = {
       animationDuration: `${this.props.Duration || 3}s`
     }
-    if (this.props.timeout) {
+    if (this.props.Timeout) {
       classNames = [styles['toast_hide']];
       style = {
         animationDuration: `.3s`
@@ -56,7 +56,7 @@ class Toast extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    timeout: state.questionsType.timeout
+    Show: state.questionsType.show
   }
 }
 
